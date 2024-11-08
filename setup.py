@@ -14,7 +14,7 @@ env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = []
+    dependency = ["openpyxl==3.1.5"]
 
     if env and env == "code":
         return dependency
