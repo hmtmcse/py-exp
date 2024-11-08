@@ -1,4 +1,5 @@
 from openpyxl import Workbook
+from openpyxl.drawing.image import Image
 
 
 def basic():
@@ -15,7 +16,21 @@ def basic():
     for data in data_bank:
         active_sheet.append(data)
 
-    workbook.save("basic-openpyxl.xlsx")
+    workbook.save("ignore/basic-openpyxl.xlsx")
+
+
+def add_image():
+    workbook = Workbook()
+    active_sheet = workbook.active
+    active_sheet.title = "Image Sheet"
+
+    logo = Image("assets/logo.png")
+    logo.height = 150
+    logo.width = 150
+
+    active_sheet.add_image(logo, "A3")
+    workbook.save("image-openpyxl.xlsx")
 
 
 basic()
+add_image()
