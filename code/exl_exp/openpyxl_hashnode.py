@@ -267,3 +267,5 @@ def main(csv_file, xslx_file):
 
 if __name__ == "__main__":
     main("assets/countries-of-the-world.csv", 'ignore/countries-report.xlsx')
+
+# https://tongere.hashnode.dev/python-openpyxl-styling-a-spreadsheet
