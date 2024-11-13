@@ -135,6 +135,45 @@ def styling():
     workbook.save("ignore/styling.xlsx")
 
 
+def invoice_with_header():
+    # Create a new workbook and select the active sheet
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Invoice"
+
+    # Load and add the logo image
+    logo = Image("assets/logo.png")
+    ws.add_image(logo, "A1")
+
+    # Adjust the row height and column width for the logo and header
+    ws.row_dimensions[1].height = 50  # Adjust based on logo size
+    ws.column_dimensions["A"].width = 15
+
+    # Add company name
+    ws["B1"] = "Your Company Name"
+    ws["B1"].font = Font(size=16, bold=True)
+    ws["B1"].alignment = Alignment(horizontal="left", vertical="top")
+
+    # Add company address
+    ws["B2"] = "1234 Elm Street"
+    ws["B2"].font = Font(size=12)
+    ws["B2"].alignment = Alignment(horizontal="left")
+
+    # Add city, state, ZIP
+    ws["B3"] = "City, State ZIP"
+    ws["B3"].font = Font(size=12)
+    ws["B3"].alignment = Alignment(horizontal="left")
+
+    # Add contact information
+    ws["B4"] = "Phone: (123) 456-7890 | Email: info@company.com"
+    ws["B4"].font = Font(size=12)
+    ws["B4"].alignment = Alignment(horizontal="left")
+
+    # Save the workbook
+    wb.save("ignore/invoice_with_header.xlsx")
+
+
+invoice_with_header()
 styling()
 freeze_panes()
 merge_cell()
