@@ -1,6 +1,6 @@
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image
-from openpyxl.styles import Font, Alignment, Side, Border
+from openpyxl.styles import Font, Alignment, Side, Border, PatternFill
 
 
 def print_invoice1():
@@ -34,6 +34,11 @@ def print_invoice1():
     for row in active_sheet['A4:J4']:
         for cell in row:
             cell.border = border
+
+    white_fill = PatternFill(start_color="FFFFFF", end_color="FFFFFF", fill_type="solid")
+    for row in active_sheet['A1:J3']:
+        for cell in row:
+            cell.fill = white_fill
 
     workbook.save("ignore/print_invoice1.xlsx")
 
