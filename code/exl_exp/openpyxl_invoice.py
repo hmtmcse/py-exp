@@ -10,7 +10,7 @@ def print_invoice1():
     active_sheet.title = "Invoice"
 
     active_sheet.merge_cells('A1:A3')
-    active_sheet.column_dimensions['A'].width = 11
+    # active_sheet.column_dimensions['A'].width = 11
     logo = Image("assets/logo.png")
     logo.height = 75
     logo.width = 75
